@@ -1,4 +1,4 @@
-# Web Development 102 - TF -  Lab 2 - *Bet*
+# Web Development 102 - TF -  Lab 7 - *Bet*
 
 Submitted by: **Kobe Jordan**
 
