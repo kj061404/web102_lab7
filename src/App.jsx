@@ -42,7 +42,7 @@ const App = () => {
       element: <EditPost data={posts} />
     },
     {
-      path:"/new",
+      path:"/CreatePost",
       element: <CreatePost />
     }
   ]);
@@ -54,7 +54,7 @@ const App = () => {
       <div className="header">
         <h1>👍 Bet 1.0</h1>
         <Link to="/"><button className="headerBtn"> Explore Challenges 🔍  </button></Link>
-        <Link to="/new"><button className="headerBtn"> Submit Challenge 🏆 </button></Link>
+        <Link to="/CreatePost"><button className="headerBtn"> Submit Challenge 🏆 </button></Link>
       </div>
         {element}
     </div>

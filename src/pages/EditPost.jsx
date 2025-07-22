@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import { useParams } from 'react-router-dom'
+import { supabase } from '../client'
 import './EditPost.css'
 
 const EditPost = ({data}) => {
@@ -17,6 +18,29 @@ const EditPost = ({data}) => {
         })
     }
 
+    const updatePost = async (event) => {
+        event.preventDefault();
+
+        await supabase
+            .from('posts')
+            .update({ title: post.title, author: post.author, description: post.description})
+            .eq('id', id);
+
+        window.location = "/";
+    }
+
+    // DELETE post
+    const deletePost = async (event) => {
+        event.preventDefault();
+
+        await supabase
+            .from('posts')
+            .delete()
+            .eq('id', id); 
+
+        window.location = "/";
+    }
+
     return (
         <div>
             <form>
@@ -32,8 +56,8 @@ const EditPost = ({data}) => {
                 <textarea rows="5" cols="50" id="description" name="description" value={post.description} onChange={handleChange} >
                 </textarea>
                 <br/>
-                <input type="submit" value="Submit" />
-                <button className="deleteButton">Delete</button>
+                <input type="submit" value="Submit" onClick={updatePost} />
+                <button className="deleteButton" onClick={deletePost}>Delete</button>
             </form>
         </div>
     )
